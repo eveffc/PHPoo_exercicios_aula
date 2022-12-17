@@ -1,11 +1,24 @@
 <?php
-//Get e Set 
+//Construct 
 class Login{
 	private $email;
 	private $senha;
+	private $nome;
+
+	public function __construct($email, $senha, $nome)// ao instanicair a classe, colocar os valores entre parenteses no "new...()"
+	{
+		$this->nome=$nome;
+		$this->setEmail($email);
+		$this->setSenha($senha);
+
+	}
+
+	public function getNome(){
+		return $this->nome;
+	} //para trocar a exibição do email para o nome 
 
 	public function getEmail(){
-		return $this->email;
+		return $this->email; //esse NÃO SE USA $ 
 	}
 	public function setEmail($e){
 		$this->email = $e;
@@ -26,13 +39,10 @@ class Login{
 	endif;
 	}
 }
-$logar = new login();
-$logar->setEmail("teste@teste.com");
-$logar->setSenha("123456");
+$logar = new login("teste@teste.com", "123456", "Evelyn"); //se inicializa aqui
 $logar->Logar();
 echo "<br>";
-echo $logar->getEmail();
+echo $logar->getNome(); //para aparecer em tela
 
-//Observar os dois pontos após uma condição;
-//os comando devem ter a variável antecedendo;
-//Um dos usos é trabalahar com a "private"
+
+//Este metodo é inicializado automaticamente quando se instância uma classe;
